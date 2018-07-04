@@ -3,24 +3,51 @@
 
 <head>
     <title>Pixel Art Maker!</title>
+    <link rel="icon" href="favico.png" type="image/png" sizes="16x16">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <h1>Lab: Pixel Art Maker</h1>
-    <h2>Choose Grid Size</h2>
-    <form id="sizePicker">
-        Grid Height:
-        <input type="number" id="input_height" name="height" min="1" value="1"> Grid Width:
-        <input type="number" id="input_width" name="width" min="1" value="1">
-        <input type="submit" id="input_submit">
-    </form>
-    <h2>Pick A Color</h2>
-    <input type="color" id="colorPicker">
-    <h2>Design Canvas</h2>
-    <table id="pixel_canvas"></table>
+    <h1> Pixel Art Maker</h1>
+    <div class="container">
+        <form id="sizePicker">
+            <h2>Choose Grid Size</h2>
+            <fieldset>
+                <label>Grid Height:</label>
+                <input type="number" id="height_input" name="height" min="1" value="1" required autofocus>
+            </fieldset>
+            <fieldset>
+                <label>Grid Width:</label>
+                <input type="number" id="width_input" name="width" min="1" value="1" required>
+            </fieldset>
+            <fieldset>
+                <input name="submit" type="button" id="submit_input" class='button -green center'  value="Submit">
+            </fieldset>
+        </form>
+    </div>
+    <hr>
+    <h2>Make Your own Color by changing the sliders</h2>
+    <div class="rgb-picker color-picker">
+        <div class="sliders">
+            <div class="red-slider short-slider">
+                <input class="bar" type="range" id="rangeinput" value="250" max="255" onchange="setRgb()" oninput="setRgb()" />
+            </div>
+            <div class="green-slider short-slider">
+                <input class="bar" type="range" id="rangeinput" value="50" max="255" onchange="setRgb()" oninput="setRgb()" />
+            </div>
+            <div class="blue-slider short-slider">
+                <input class="bar" type="range" id="rangeinput" value="50" max="255" oninput="setRgb()" onchange="setRgb()" />
+            </div>
+        </div>
+        <div class="color-preview" id="colorPicker"></div>
+    </div>
+    <hr>
+    <div id="canavas">
+    <h2 >Design Canvas</h2>
+        <table id="pixel_canvas" tabindex="1"></table>
+    </div>
     <script src="designs.js"></script>
 </body>
 
